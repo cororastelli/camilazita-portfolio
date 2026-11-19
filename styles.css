@@ -1,0 +1,141 @@
+:root {
+  --purple: #6e5084;
+  --purple-dark: #3f2c4e;
+  --lilac: #f7f1fc;
+  --mint: #eaf7eb;
+  --cream: #fffaf0;
+  --ink: #34283c;
+  --line: rgba(110, 80, 132, .24);
+  --max: 1440px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--purple); background: var(--lilac); font-family: "PT Serif", Georgia, serif; font-size: 16px; line-height: 1.55; }
+img, video, iframe { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, .brand { font-family: Marcellus, Georgia, serif; font-weight: 400; line-height: 1.04; }
+h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); letter-spacing: -.035em; }
+h2 { font-size: clamp(2.65rem, 6.2vw, 6rem); letter-spacing: -.04em; }
+
+.skip-link { position: fixed; left: 1rem; top: -5rem; padding: .7rem 1rem; background: white; z-index: 100; }
+.skip-link:focus { top: 1rem; }
+.site-header { position: sticky; top: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem clamp(1.25rem, 4vw, 4rem); background: rgba(247, 241, 252, .88); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+.brand, .about-link { text-decoration: none; }
+.brand { font-size: 1.55rem; }
+.about-link { padding-bottom: .2rem; border-bottom: 1px solid transparent; }
+.about-link:hover, .about-link.active { border-color: currentColor; }
+
+.section { padding: clamp(4.5rem, 9vw, 9rem) clamp(1.25rem, 5vw, 5rem); }
+.section > * { width: min(100%, var(--max)); margin-left: auto; margin-right: auto; }
+.lilac { background: var(--lilac); }
+.mint { background: var(--mint); }
+.cream { background: var(--cream); }
+.dark { background: var(--purple-dark); color: #f8efff; }
+.eyebrow, .number { font-family: Arial, sans-serif; text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; }
+
+.hero { min-height: calc(100vh - 74px); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .7fr); gap: clamp(2rem, 7vw, 8rem); align-items: center; }
+.hero > * { width: auto; margin: 0; }
+.hero-copy { max-width: 790px; }
+.hero-copy > p:last-child { max-width: 620px; font-size: clamp(1.05rem, 1.5vw, 1.35rem); }
+.hero-image { justify-self: center; width: min(100%, 430px); max-height: 72vh; object-fit: cover; object-position: top; border-radius: 48% 48% 12px 12px; }
+
+.project-heading { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: clamp(1rem, 4vw, 4rem); align-items: start; margin-bottom: clamp(2.5rem, 6vw, 6rem); }
+.project-heading h2 { margin-bottom: 1.5rem; }
+.project-heading p:not(.number) { max-width: 850px; font-size: clamp(1rem, 1.35vw, 1.2rem); }
+
+.gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(.7rem, 1.3vw, 1.2rem); align-items: start; }
+.gallery-item { grid-column: span 4; padding: 0; border: 0; background: transparent; cursor: zoom-in; overflow: hidden; }
+.gallery-item img { width: 100%; height: 100%; max-height: 520px; object-fit: cover; transition: transform .35s ease; }
+.gallery-item:hover img { transform: scale(1.025); }
+.gallery-item.tall img { aspect-ratio: .72; }
+.gallery-item.square img { aspect-ratio: 1; }
+.gallery-wedding .gallery-item:nth-child(1), .gallery-wedding .gallery-item:nth-child(4) { grid-column: span 3; }
+.gallery-wedding .gallery-item:nth-child(2), .gallery-wedding .gallery-item:nth-child(5) { grid-column: span 5; }
+.gallery-wedding .gallery-item:nth-child(3), .gallery-wedding .gallery-item:nth-child(6) { grid-column: span 4; }
+.three .gallery-item { grid-column: span 4; }
+.two .gallery-item { grid-column: span 6; }
+.four .gallery-item { grid-column: span 3; }
+
+.feature-layout { display: grid; grid-template-columns: minmax(260px, .7fr) minmax(0, 1.3fr); gap: clamp(2rem, 6vw, 7rem); align-items: start; margin-bottom: 4rem; }
+.poster { width: 100%; max-height: 760px; object-fit: contain; }
+.accordion { border-top: 1px solid var(--line); }
+.accordion details { border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+.accordion summary { font-family: Marcellus, serif; font-size: clamp(1.25rem, 2.5vw, 2rem); cursor: pointer; }
+.accordion p { max-width: 650px; padding-top: 1rem; }
+.behance { width: 100%; min-height: 650px; border: 0; background: white; }
+
+.split-media { display: grid; grid-template-columns: 1.4fr .6fr; gap: clamp(1.2rem, 4vw, 4rem); align-items: start; }
+.video-card { display: grid; gap: 1rem; }
+.video-card video { width: 100%; max-height: 760px; background: var(--purple-dark); }
+.media-row { display: grid; grid-template-columns: .8fr 1.2fr; gap: 1rem; align-items: center; margin-bottom: 3rem; }
+.wide-video, .mapping-video { width: 100%; max-height: 80vh; background: #19151c; }
+.mapping-video { margin-bottom: 1.2rem; }
+.audio-card { display: grid; gap: 1rem; padding: 1.25rem; border: 1px solid currentColor; margin-bottom: 2.5rem; }
+.audio-card span { font-family: Marcellus, serif; font-size: 1.3rem; }
+.audio-card audio { width: 100%; }
+.immersive-gallery .gallery-item:nth-child(3n+1) { grid-column: span 5; }
+.immersive-gallery .gallery-item:nth-child(3n+2) { grid-column: span 3; }
+.immersive-gallery .gallery-item:nth-child(3n) { grid-column: span 4; }
+
+.carousel { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1rem; }
+.carousel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; gap: 1rem; }
+.carousel-track img { flex: 0 0 min(82vw, 980px); width: min(82vw, 980px); max-height: 74vh; object-fit: contain; scroll-snap-align: center; background: white; }
+.carousel-nav { width: 3rem; height: 3rem; border: 1px solid currentColor; border-radius: 50%; color: inherit; background: transparent; cursor: pointer; }
+
+.site-footer { display: grid; grid-template-columns: 1.3fr .7fr; gap: 3rem; align-items: end; padding: clamp(5rem, 10vw, 10rem) clamp(1.25rem, 5vw, 5rem); color: #f8efff; background: var(--purple-dark); }
+.site-footer h2 { margin: 0; }
+.site-footer div { display: grid; gap: .25rem; }
+.site-footer p { margin: 0 0 1rem; }
+.site-footer a { width: fit-content; }
+
+.lightbox { width: min(94vw, 1400px); height: min(92vh, 1000px); padding: 3.2rem 1rem 1rem; border: 0; background: #1d1722; }
+.lightbox::backdrop { background: rgba(20, 14, 24, .9); }
+.lightbox img { width: 100%; height: 100%; object-fit: contain; }
+.lightbox-close { position: absolute; top: .4rem; right: 1rem; border: 0; color: white; background: transparent; font-size: 2rem; cursor: pointer; }
+
+.about-intro { min-height: calc(100vh - 74px); display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(2rem, 7vw, 7rem); align-items: center; }
+.about-intro > * { width: auto; margin: 0; }
+.about-copy p { max-width: 670px; }
+.pullquote { margin-top: 2.5rem; font-family: Marcellus, serif; font-size: clamp(1.3rem, 2.5vw, 2rem); line-height: 1.25; }
+.about-collage { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; align-items: end; }
+.about-collage img { width: 100%; height: 310px; object-fit: cover; }
+.about-collage img:nth-child(2), .about-collage img:nth-child(5) { height: 410px; }
+
+@media (max-width: 850px) {
+  .site-header { padding: 1rem 1.25rem; }
+  .hero, .about-intro { grid-template-columns: 1fr; }
+  .hero { min-height: auto; padding-top: 5rem; }
+  .hero-image { width: min(78vw, 400px); max-height: none; }
+  .project-heading { grid-template-columns: 1fr; }
+  .project-heading .number { margin-bottom: -.5rem; }
+  .feature-layout, .split-media, .media-row, .site-footer { grid-template-columns: 1fr; }
+  .gallery-wedding .gallery-item, .three .gallery-item, .four .gallery-item, .immersive-gallery .gallery-item { grid-column: span 6 !important; }
+  .behance { min-height: 500px; }
+  .about-copy { order: 1; }
+  .about-collage { order: 2; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 15px; }
+  .section { padding: 4rem 1rem; }
+  .site-header { position: relative; }
+  .hero { padding-top: 3.5rem; }
+  .hero-image { width: 88%; }
+  .gallery { gap: .65rem; }
+  .gallery-wedding .gallery-item, .three .gallery-item, .two .gallery-item, .four .gallery-item, .immersive-gallery .gallery-item { grid-column: 1 / -1 !important; }
+  .gallery-item img { max-height: none; }
+  .behance { min-height: 420px; }
+  .carousel { grid-template-columns: 1fr; }
+  .carousel-nav { display: none; }
+  .carousel-track img { flex-basis: 90vw; width: 90vw; }
+  .about-collage { grid-template-columns: repeat(2, 1fr); }
+  .about-collage img, .about-collage img:nth-child(2), .about-collage img:nth-child(5) { height: 280px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
